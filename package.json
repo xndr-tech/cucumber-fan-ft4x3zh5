@@ -1,0 +1,12 @@
+{
+  "name": "cucumber-fan-ft4x3zh5",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Fan site of all types of cucumbers",
+  "type": "module",
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20241218.0",
+    "wrangler": "^3.96.0",
+    "typescript": "^5.7.2"
+  }
+}

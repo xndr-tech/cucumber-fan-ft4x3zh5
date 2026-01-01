@@ -1,0 +1,17 @@
+{
+  "version": "1.0",
+  "siteId": "ft4x3zh5",
+  "name": "Cucumber fan",
+  "description": "Fan site of all types of cucumbers",
+  "siteType": "one-page",
+  "colorScheme": "sage",
+  "font": "Albert Sans",
+  "tags": [
+    "fruit",
+    "seo"
+  ],
+  "tools": [],
+  "model": "gemini-2.5-flash",
+  "createdAt": 1767296569139,
+  "updatedAt": 1767296569139
+}
