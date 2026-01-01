@@ -1,5 +1,5 @@
 {
-  "version": "1.0",
+  "version": "2.0",
   "siteId": "ft4x3zh5",
   "name": "Cucumber fan",
   "description": "Fan site of all types of cucumbers",
@@ -12,6 +12,30 @@
   ],
   "tools": [],
   "model": "gemini-2.5-flash",
-  "createdAt": 1767296569139,
-  "updatedAt": 1767296569139
+  "customHtml": false,
+  "createdAt": 1767303661692,
+  "updatedAt": 1767303661692,
+  "buildMetadata": {
+    "levrVersion": "0.3.8",
+    "templateVersion": "1.0.0",
+    "templateType": "one-pager",
+    "promptVersions": {
+      "html": "1.0.0",
+      "tags": "1.0.0"
+    },
+    "workflowVersions": {
+      "deploy": "1.0.0"
+    },
+    "buildTimestamp": 1767303661692,
+    "buildId": "ft4x3zh5",
+    "model": "gemini-2.5-flash",
+    "modelProvider": "gemini",
+    "modelInfo": {
+      "name": "gemini-2.5-flash",
+      "provider": "gemini",
+      "family": "gemini-2.5",
+      "version": "2.5",
+      "variant": "flash"
+    }
+  }
 }

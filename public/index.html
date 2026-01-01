@@ -3,41 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Cucumber fan - A fan site dedicated to all types of cucumbers, from growing tips to delicious recipes.">
-    <meta name="keywords" content="cucumber, fan, fruit, vegetables, recipes, growing, gherkin, slicing, pickling, healthy, hydration, seo">
-    <title>Cucumber fan - Your Ultimate Cucumber Hub</title>
-    <link href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <meta name="description" content="Cucumber Fan - Your ultimate fan site for all types of cucumbers. Discover varieties, growing tips, recipes, and more!">
+    <meta name="author" content="Cucumber Fan Team">
+    <title>Cucumber Fan - All About Cucumbers</title>
+    <link href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --color-primary: #8ecfad; /* Sage Green */
-            --color-secondary: #d4edda; /* Lighter Sage */
-            --color-accent: #6f9f8a; /* Darker Sage */
+            --color-secondary: #c2dcc5; /* Lighter Sage */
+            --color-accent: #6a967a; /* Darker Sage for contrast */
             --color-background: #fdfdfd;
-            --color-text: #333333;
-            --color-light-text: #666666;
+            --color-text: #333;
+            --color-light-text: #666;
             --color-white: #ffffff;
-            --color-dark: #2c3e50;
-
+            --color-black: #000000;
+            --color-border: #ddd;
             --font-family-primary: 'Albert Sans', sans-serif;
-
             --spacing-unit: 1rem;
-            --spacing-sm: calc(var(--spacing-unit) * 0.5); /* 8px */
-            --spacing-md: calc(var(--spacing-unit) * 1);   /* 16px */
-            --spacing-lg: calc(var(--spacing-unit) * 2);   /* 32px */
-            --spacing-xl: calc(var(--spacing-unit) * 4);   /* 64px */
-
-            --section-padding: 80px;
-            --max-width: 1200px;
+            --section-padding-desktop: 80px 5%;
+            --section-padding-mobile: 60px 5%;
             --border-radius: 8px;
-            --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-            --transition-speed: 0.3s ease;
+            --transition-speed: 0.3s;
         }
 
-        /* Basic Reset & Body Styling */
-        *, *::before, *::after {
-            box-sizing: border-box;
+        /* Base Styles & Reset */
+        * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
         }
 
         html {
@@ -46,116 +39,118 @@
 
         body {
             font-family: var(--font-family-primary);
-            line-height: 1.6;
             color: var(--color-text);
             background-color: var(--color-background);
-            overflow-x: hidden;
+            line-height: 1.6;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            color: var(--color-accent);
+            margin-bottom: var(--spacing-unit);
+            font-weight: 700;
+        }
+
+        h1 {
+            font-size: 3.2rem;
+            line-height: 1.1;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+
+        h3 {
+            font-size: 1.8rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
         }
 
         a {
             color: var(--color-primary);
             text-decoration: none;
-            transition: color var(--transition-speed);
+            transition: color var(--transition-speed) ease;
         }
 
         a:hover {
             color: var(--color-accent);
         }
 
-        ul {
-            list-style: none;
-        }
-
-        /* Utility Classes */
-        .container {
-            max-width: var(--max-width);
-            margin-inline: auto;
-            padding-inline: var(--spacing-lg);
-        }
-
-        .text-center {
-            text-align: center;
-        }
-
-        .button {
+        /* Buttons */
+        .btn {
             display: inline-block;
+            padding: 0.8rem 1.8rem;
             background-color: var(--color-primary);
             color: var(--color-white);
-            padding: var(--spacing-md) var(--spacing-lg);
-            border-radius: var(--border-radius);
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            transition: background-color var(--transition-speed), transform var(--transition-speed);
             border: none;
-            cursor: pointer;
+            border-radius: var(--border-radius);
             font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color var(--transition-speed) ease, transform var(--transition-speed) ease;
         }
 
-        .button:hover {
+        .btn:hover {
             background-color: var(--color-accent);
             transform: translateY(-2px);
         }
 
-        .section-heading {
-            font-size: 2.5rem;
-            color: var(--color-dark);
-            margin-bottom: var(--spacing-xl);
-            position: relative;
-            padding-bottom: var(--spacing-md);
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--color-primary);
+            border: 2px solid var(--color-primary);
+            margin-left: var(--spacing-unit);
         }
 
-        .section-heading::after {
-            content: '';
-            position: absolute;
-            left: 50%;
-            bottom: 0;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
+        .btn-secondary:hover {
             background-color: var(--color-primary);
-            border-radius: 2px;
+            color: var(--color-white);
         }
 
-        /* Header / Navigation */
-        .header {
+        /* Navigation */
+        #navbar {
             background-color: var(--color-white);
-            padding: var(--spacing-md) 0;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-        }
-
-        .navbar {
+            padding: 1rem 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            height: 60px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
         }
 
-        .logo {
-            font-size: 1.8rem;
+        .nav-logo {
             font-weight: 700;
-            color: var(--color-dark);
-            letter-spacing: -0.02em;
+            font-size: 1.8rem;
+            color: var(--color-primary);
         }
 
-        .nav-list {
+        .nav-links {
+            list-style: none;
             display: flex;
-            gap: var(--spacing-lg);
         }
 
-        .nav-list a {
-            color: var(--color-light-text);
-            font-weight: 600;
-            padding: var(--spacing-sm) 0;
+        .nav-links li {
+            margin-left: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--color-text);
+            font-weight: 500;
+            font-size: 1.05rem;
             position: relative;
+            padding-bottom: 5px;
         }
 
-        .nav-list a::after {
+        .nav-links a::after {
             content: '';
             position: absolute;
             left: 0;
@@ -163,569 +158,534 @@
             width: 0;
             height: 2px;
             background-color: var(--color-primary);
-            transition: width var(--transition-speed);
+            transition: width var(--transition-speed) ease-out;
         }
 
-        .nav-list a:hover::after,
-        .nav-list a.active::after {
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
             width: 100%;
         }
 
-        .menu-toggle {
+        .hamburger {
             display: none;
-            font-size: 2rem;
-            background: none;
-            border: none;
+            flex-direction: column;
             cursor: pointer;
-            color: var(--color-dark);
+            padding: 10px;
+            z-index: 10;
+        }
+
+        .hamburger span {
+            height: 3px;
+            width: 25px;
+            background: var(--color-accent);
+            margin-bottom: 4px;
+            border-radius: 2px;
+            transition: all var(--transition-speed) ease-in-out;
+        }
+
+        /* Sections */
+        section {
+            padding: var(--section-padding-desktop);
+            margin-top: 0; /* Adjusted for fixed nav */
         }
 
         /* Hero Section */
         #hero {
-            background: linear-gradient(rgba(142, 207, 173, 0.7), rgba(142, 207, 173, 0.7)), url('https://images.unsplash.com/photo-1599859239855-d3623f9b23b4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjVlMjIzfDB8MXxzZWFyY2h8NHx8Y3VjdW1iZXJzfGVufDB8fHx8MTY3ODkzMDYwMA&ixlib=rb-4.0.3&q=80&w=1080') center/cover no-repeat;
-            color: var(--color-white);
+            background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), url('https://images.unsplash.com/photo-1594246995641-a6ce9148d4fb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1MDcxNzJ8MHwxfHNlYXJjaHw1fHxjdWN1bWJlcnxlbnwwfHx8fDE3MDkyNDQ2NDF8MA&ixlib=rb-4.0.3&q=80&w=1080') no-repeat center center/cover;
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            padding: var(--section-padding) 0;
+            margin-top: 0; /* No margin on hero */
         }
 
-        .hero-content {
+        #hero .hero-content {
             max-width: 800px;
-            padding: var(--spacing-lg);
         }
 
-        .hero-content h1 {
+        #hero h1 {
+            color: var(--color-accent);
+            margin-bottom: 1.5rem;
             font-size: 4rem;
-            margin-bottom: var(--spacing-md);
-            line-height: 1.1;
-            font-weight: 700;
-            text-shadow: 0 4px 8px rgba(0,0,0,0.3);
         }
 
-        .hero-content p {
+        #hero .tagline {
             font-size: 1.4rem;
-            margin-bottom: var(--spacing-xl);
-            font-weight: 300;
-            max-width: 600px;
-            margin-inline: auto;
-            opacity: 0.9;
-        }
-
-        /* Sections General */
-        section {
-            padding-block: var(--section-padding);
-        }
-
-        section:nth-of-type(odd) {
-            background-color: var(--color-secondary);
+            color: var(--color-light-text);
+            margin-bottom: 2.5rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         /* Features Section */
-        #features .features-grid {
+        #features {
+            background-color: var(--color-secondary);
+            text-align: center;
+        }
+
+        .features-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: var(--spacing-lg);
-            margin-top: var(--spacing-xl);
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
-        .feature-card {
+        .feature-item {
             background-color: var(--color-white);
-            padding: var(--spacing-lg);
+            padding: 2.5rem;
             border-radius: var(--border-radius);
-            box-shadow: var(--box-shadow);
-            text-align: center;
-            transition: transform var(--transition-speed);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
         }
 
-        .feature-card:hover {
+        .feature-item:hover {
             transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
         }
 
-        .feature-card .icon {
+        .feature-item .icon {
             font-size: 3.5rem;
             color: var(--color-primary);
-            margin-bottom: var(--spacing-md);
+            margin-bottom: 1rem;
             display: block;
         }
 
-        .feature-card h3 {
-            font-size: 1.5rem;
-            color: var(--color-dark);
-            margin-bottom: var(--spacing-sm);
+        .feature-item h3 {
+            color: var(--color-accent);
+            font-size: 1.6rem;
+            margin-bottom: 0.8rem;
         }
 
-        .feature-card p {
+        .feature-item p {
+            font-size: 1rem;
             color: var(--color-light-text);
         }
 
         /* About Section */
-        #about .about-content {
+        #about {
             display: flex;
-            flex-wrap: wrap;
             align-items: center;
-            gap: var(--spacing-xl);
-            margin-top: var(--spacing-xl);
-        }
-
-        #about .about-text {
-            flex: 2;
-            min-width: 300px;
-        }
-
-        #about .about-text h2 {
-             text-align: left;
-             margin-bottom: var(--spacing-lg);
-        }
-
-        #about .about-text p {
-            margin-bottom: var(--spacing-md);
-            color: var(--color-light-text);
+            justify-content: center;
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            flex-wrap: wrap;
         }
 
         #about .about-image {
             flex: 1;
-            min-width: 280px;
-            max-width: 450px;
-            border-radius: var(--border-radius);
-            overflow: hidden;
-            box-shadow: var(--box-shadow);
+            min-width: 300px;
+            text-align: center;
         }
 
         #about .about-image img {
-            width: 100%;
+            max-width: 100%;
             height: auto;
-            display: block;
-            object-fit: cover;
-            object-position: center;
+            border-radius: var(--border-radius);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        #about .about-content {
+            flex: 2;
+            min-width: 300px;
+            max-width: 700px;
+        }
+
+        #about h2 {
+            text-align: left;
+            margin-bottom: 1.5rem;
         }
 
         /* Contact Section */
-        #contact .contact-form {
+        #contact {
+            background-color: var(--color-secondary);
+            text-align: center;
+        }
+
+        #contact h2 {
+            margin-bottom: 2rem;
+        }
+
+        .contact-form {
             max-width: 600px;
-            margin-inline: auto;
+            margin: 0 auto;
             background-color: var(--color-white);
-            padding: var(--spacing-xl);
+            padding: 2.5rem;
             border-radius: var(--border-radius);
-            box-shadow: var(--box-shadow);
-            margin-top: var(--spacing-xl);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
         }
 
-        #contact .form-group {
-            margin-bottom: var(--spacing-lg);
+        .form-group {
+            margin-bottom: 1.5rem;
+            text-align: left;
         }
 
-        #contact label {
+        .form-group label {
             display: block;
-            margin-bottom: var(--spacing-sm);
-            font-weight: 600;
-            color: var(--color-dark);
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--color-light-text);
         }
 
-        #contact input[type="text"],
-        #contact input[type="email"],
-        #contact textarea {
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group textarea {
             width: 100%;
-            padding: var(--spacing-md);
-            border: 1px solid #ddd;
+            padding: 0.8rem 1rem;
+            border: 1px solid var(--color-border);
             border-radius: var(--border-radius);
             font-family: var(--font-family-primary);
             font-size: 1rem;
-            transition: border-color var(--transition-speed);
+            transition: border-color var(--transition-speed) ease;
         }
 
-        #contact input[type="text"]:focus,
-        #contact input[type="email"]:focus,
-        #contact textarea:focus {
+        .form-group input[type="text"]:focus,
+        .form-group input[type="email"]:focus,
+        .form-group textarea:focus {
             outline: none;
             border-color: var(--color-primary);
             box-shadow: 0 0 0 3px rgba(142, 207, 173, 0.2);
         }
 
-        #contact textarea {
+        .form-group textarea {
             resize: vertical;
             min-height: 120px;
         }
 
-        #contact .form-message {
-            margin-top: var(--spacing-md);
-            padding: var(--spacing-md);
-            border-radius: var(--border-radius);
-            font-weight: 600;
-            display: none; /* Hidden by default */
-        }
-
-        #contact .form-message.success {
-            background-color: var(--color-secondary);
-            color: var(--color-accent);
-            border: 1px solid var(--color-primary);
-        }
-
-        #contact .form-message.error {
-            background-color: #fdd;
-            color: #d8000c;
-            border: 1px solid #d8000c;
+        .form-group .error-message {
+            color: #d9534f;
+            font-size: 0.85rem;
+            margin-top: 0.3rem;
+            display: none;
         }
 
         /* Footer */
-        .footer {
-            background-color: var(--color-dark);
+        footer {
+            background-color: var(--color-accent);
             color: var(--color-white);
-            padding: var(--spacing-xl) 0;
+            padding: 3rem 5%;
             text-align: center;
             font-size: 0.9rem;
         }
 
-        .footer .footer-links {
-            margin-top: var(--spacing-md);
+        footer .footer-links {
+            list-style: none;
+            padding: 0;
+            margin: 1.5rem 0;
             display: flex;
             justify-content: center;
-            gap: var(--spacing-lg);
             flex-wrap: wrap;
         }
 
-        .footer .footer-links a {
-            color: rgba(255, 255, 255, 0.7);
+        footer .footer-links li {
+            margin: 0 1rem;
         }
 
-        .footer .footer-links a:hover {
+        footer .footer-links a {
             color: var(--color-white);
+            font-weight: 300;
         }
 
-        .footer p {
-            margin-top: var(--spacing-xl);
-            opacity: 0.8;
+        footer .footer-links a:hover {
+            color: var(--color-secondary);
         }
 
-
-        /* Font Awesome Icons (Dummy for demonstration, since external CSS is not allowed) */
-        /* In a real project, you'd link Font Awesome CSS. For this specific challenge,
-           we'll just use characters or simple CSS shapes, or indicate the intention
-           of an icon with a placeholder. Using common Unicode characters as icons. */
-        .icon-plant::before { content: "🌱"; }
-        .icon-book::before { content: "📚"; }
-        .icon-chef::before { content: "👨‍🍳"; }
-        .icon-health::before { content: "💚"; }
-
-
-        /* Responsive Design */
+        /* Mobile Responsiveness */
         @media (max-width: 768px) {
-            :root {
-                --section-padding: 60px;
-                --spacing-lg: calc(var(--spacing-unit) * 1.5);
-                --spacing-xl: calc(var(--spacing-unit) * 3);
+            h1 {
+                font-size: 2.5rem;
+            }
+            h2 {
+                font-size: 2rem;
+            }
+            .btn {
+                padding: 0.7rem 1.5rem;
             }
 
-            .header {
-                padding: var(--spacing-sm) 0;
-            }
-
-            .navbar {
-                flex-wrap: wrap;
-                height: auto;
-                min-height: 60px;
-            }
-
-            .nav-list {
+            /* Nav adjustments */
+            .nav-links {
+                display: none;
                 flex-direction: column;
+                position: absolute;
+                top: 100%; /* Below the nav bar */
+                left: 0;
                 width: 100%;
                 background-color: var(--color-white);
-                position: absolute;
-                top: 60px; /* Adjust based on navbar height */
-                left: 0;
-                transform: translateY(-100%);
-                opacity: 0;
-                pointer-events: none;
-                transition: transform 0.4s ease-out, opacity 0.4s ease-out;
-                padding-bottom: var(--spacing-lg);
-                box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+                padding: 1rem 5%;
+                border-top: 1px solid var(--color-border);
             }
 
-            .nav-list.nav-open {
-                transform: translateY(0);
-                opacity: 1;
-                pointer-events: auto;
+            .nav-links.active {
+                display: flex;
             }
 
-            .nav-list a {
-                padding: var(--spacing-md) var(--spacing-lg);
-                border-bottom: 1px solid var(--color-secondary);
+            .nav-links li {
+                margin: 0.8rem 0;
                 text-align: center;
             }
 
-            .nav-list a::after {
-                left: 50%;
-                transform: translateX(-50%);
-                width: 0; /* reset width on mobile */
-            }
-            .nav-list a:hover::after,
-            .nav-list a.active::after {
-                 width: 50%; /* Smaller hover line for mobile */
-            }
-
-            .menu-toggle {
+            .nav-links a {
                 display: block;
+                padding: 0.5rem 0;
             }
 
-            .hero-content h1 {
+            .hamburger {
+                display: flex;
+            }
+
+            .hamburger.active span:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 5px);
+            }
+            .hamburger.active span:nth-child(2) {
+                opacity: 0;
+            }
+            .hamburger.active span:nth-child(3) {
+                transform: rotate(-45deg) translate(5px, -5px);
+            }
+
+            /* Section padding */
+            section {
+                padding: var(--section-padding-mobile);
+            }
+
+            #hero h1 {
                 font-size: 2.8rem;
             }
 
-            .hero-content p {
-                font-size: 1.1rem;
+            #hero .tagline {
+                font-size: 1.2rem;
             }
 
-            .section-heading {
-                font-size: 2rem;
-                margin-bottom: var(--spacing-lg);
+            .hero-actions .btn {
+                margin: 0.5rem 0;
+                display: block;
+                width: 100%;
             }
 
-            #features .features-grid {
-                grid-template-columns: 1fr;
+            .hero-actions .btn-secondary {
+                margin-left: 0;
             }
 
-            #about .about-content {
+            /* About section */
+            #about {
                 flex-direction: column;
                 text-align: center;
             }
 
-            #about .about-text {
-                order: 2; /* Text below image on mobile */
+            #about .about-content h2 {
+                text-align: center;
             }
 
-            #about .about-image {
-                order: 1;
-                max-width: 80%; /* Smaller image on mobile */
-            }
-
-            #contact .contact-form {
-                padding: var(--spacing-lg);
-            }
-
-            .footer .footer-links {
-                flex-direction: column;
-                gap: var(--spacing-sm);
+            /* Footer */
+            footer .footer-links li {
+                margin: 0.5rem 0.8rem;
             }
         }
 
         @media (max-width: 480px) {
-            .hero-content h1 {
-                font-size: 2.2rem;
+            h1 {
+                font-size: 2rem;
             }
-            .hero-content p {
-                font-size: 1rem;
+            h2 {
+                font-size: 1.8rem;
             }
-            .button {
-                padding: var(--spacing-sm) var(--spacing-md);
-                font-size: 0.9rem;
-            }
-            .logo {
-                font-size: 1.5rem;
+            .feature-item {
+                padding: 2rem 1.5rem;
             }
         }
     </style>
 </head>
 <body>
-    <header class="header">
-        <div class="container navbar">
-            <a href="#" class="logo">Cucumber fan</a>
-            <button class="menu-toggle" aria-label="Toggle navigation">&#9776;</button>
-            <nav class="nav-list">
-                <a href="#hero" class="active">Home</a>
-                <a href="#features">Explore</a>
-                <a href="#about">Our Story</a>
-                <a href="#contact">Connect</a>
-            </nav>
+    <nav id="navbar">
+        <a href="#hero" class="nav-logo">Cucumber Fan</a>
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
         </div>
-    </header>
+        <ul class="nav-links">
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#features">Explore</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
 
     <section id="hero">
         <div class="hero-content">
-            <h1>Dive into the World of Cucumbers: Your Ultimate Fan Hub</h1>
-            <p>From crisp gherkins to refreshing slicing cukes, we celebrate every crunchy, cool variety. Explore recipes, growing tips, and fascinating facts about your favorite garden fruit!</p>
-            <a href="#features" class="button">Explore Cucumber Varieties</a>
+            <h1>Dive Into the Wonderful World of Cucumbers!</h1>
+            <p class="tagline">From crisp slicers to tangy pickles, discover everything about your favorite green fruit. Join our community of cucumber enthusiasts today!</p>
+            <div class="hero-actions">
+                <a href="#features" class="btn">Explore Varieties</a>
+                <a href="#contact" class="btn btn-secondary">Connect With Us</a>
+            </div>
         </div>
     </section>
 
-    <section id="features" class="container text-center">
-        <h2 class="section-heading">Why We Love Cucumbers</h2>
+    <section id="features">
+        <h2>What We Offer</h2>
         <div class="features-grid">
-            <div class="feature-card">
-                <span class="icon icon-plant" aria-hidden="true"></span>
-                <h3>Variety Vault</h3>
-                <p>Discover countless cucumber types, their origins, and unique characteristics, from Armenian to Lemon.</p>
+            <div class="feature-item">
+                <span class="icon">🥒</span>
+                <h3>Variety Guide</h3>
+                <p>Uncover the diverse world of cucumbers, from garden-fresh slicers to unique heirloom varieties. Learn their origins and best uses.</p>
             </div>
-            <div class="feature-card">
-                <span class="icon icon-book" aria-hidden="true"></span>
-                <h3>Cultivation Corner</h3>
-                <p>Expert tips and tricks for growing the perfect cucumbers in any climate, from seed to harvest.</p>
+            <div class="feature-item">
+                <span class="icon">🌱</span>
+                <h3>Growing Tips</h3>
+                <p>Master the art of cultivating your own crunchy cucumbers. Expert advice on planting, care, and harvesting for a bountiful yield.</p>
             </div>
-            <div class="feature-card">
-                <span class="icon icon-chef" aria-hidden="true"></span>
-                <h3>Culinary Creations</h3>
-                <p>Delicious recipes from refreshing salads and soothing drinks to innovative fermented delights.</p>
+            <div class="feature-item">
+                <span class="icon">🥗</span>
+                <h3>Delicious Recipes</h3>
+                <p>Transform your cucumbers into culinary masterpieces! Explore refreshing salads, vibrant drinks, and innovative dishes everyone will love.</p>
             </div>
-            <div class="feature-card">
-                <span class="icon icon-health" aria-hidden="true"></span>
-                <h3>Health & Hydration</h3>
-                <p>Learn about the incredible health benefits and hydrating power that make cucumbers a superfood.</p>
+            <div class="feature-item">
+                <span class="icon">💧</span>
+                <h3>Health Benefits</h3>
+                <p>Discover the incredible hydrating and nutritional properties of cucumbers. Learn why they're a must-have for a healthy lifestyle.</p>
             </div>
         </div>
     </section>
 
-    <section id="about" class="container">
-        <h2 class="section-heading text-center">Our Story: A Passion for the Crisp & Cool</h2>
+    <section id="about">
+        <div class="about-image">
+            <img src="https://images.unsplash.com/photo-1579895240974-e8664188b64e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1MDcxNzJ8MHwxfHNlYXJjaHw3fHxjdWN1bWJlcnxlbnwwfHx8fDE3MDkyNDQ2NDF8MA&ixlib=rb-4.0.3&q=80&w=1080" alt="Freshly picked cucumbers">
+        </div>
         <div class="about-content">
-            <div class="about-text">
-                <p>Welcome to Cucumber Fan, the internet's premier destination for everything cucumber! Born from a deep passion for this versatile fruit (yes, it's a fruit!), our mission is to cultivate a community where enthusiasts can share their love, knowledge, and even their best cucumber jokes. Whether you're a seasoned grower, a culinary explorer, or just someone who appreciates a good crunch, you've found your tribe.</p>
-                <p>Our journey began when a group of cucumber connoisseurs realized there wasn't a dedicated online space that truly celebrated the humble cucumber in all its glory. We believe that every crisp bite and every refreshing sip of cucumber-infused water deserves recognition. Join us as we explore the vast, verdant world of cucumbers, one delicious discovery at a time!</p>
-            </div>
-            <div class="about-image">
-                <img src="https://images.unsplash.com/photo-1579737976694-de4a89d71c1b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjVlMjIzfDB8MXxzZWFyY2h8Nnx8Y3VjdW1iZXJzJTIwc2xpY2VzfGVufDB8fHx8MTY3ODkzMDYwMA&ixlib=rb-4.0.3&q=80&w=1080" alt="Freshly sliced cucumbers" loading="lazy">
-            </div>
+            <h2>Our Passion for Cucumbers</h2>
+            <p>Cucumber Fan was born from a simple love for this versatile green fruit. We believe that cucumbers are more than just a salad ingredient; they are a source of refreshment, nutrition, and endless culinary possibilities. Our journey began with a small garden patch and a desire to share our growing knowledge and passion with fellow enthusiasts.</p>
+            <p>Today, we've cultivated a vibrant online community dedicated to exploring every facet of the cucumber world. From the crisp snap of a fresh English cucumber to the tangy delight of a dill pickle, we celebrate them all. Our mission is to educate, inspire, and connect cucumber lovers around the globe, fostering a community where knowledge and recipes are shared freely, ensuring everyone can enjoy the bounty of this amazing fruit.</p>
         </div>
     </section>
 
-    <section id="contact" class="container text-center">
-        <h2 class="section-heading">Connect With Fellow Cucumber Fans</h2>
+    <section id="contact">
+        <h2>Get In Touch With The Cucumber Crew</h2>
         <div class="contact-form">
-            <form id="contactForm">
+            <p style="text-align: center; margin-bottom: 2rem; color: var(--color-light-text);">Have a question, a cucumber story, or a recipe to share? We'd love to hear from you!</p>
+            <form id="cucumberContactForm">
                 <div class="form-group">
-                    <label for="name">Name</label>
-                    <input type="text" id="name" name="name" required aria-label="Your Name">
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" name="name" placeholder="John Doe" required>
+                    <div class="error-message" id="nameError">Name is required.</div>
                 </div>
                 <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" name="email" required aria-label="Your Email Address">
+                    <label for="email">Your Email</label>
+                    <input type="email" id="email" name="email" placeholder="john.doe@example.com" required>
+                    <div class="error-message" id="emailError">Please enter a valid email address.</div>
                 </div>
                 <div class="form-group">
-                    <label for="message">Message</label>
-                    <textarea id="message" name="message" required aria-label="Your Message"></textarea>
+                    <label for="message">Your Message</label>
+                    <textarea id="message" name="message" rows="6" placeholder="Tell us about your favorite cucumber experience..." required></textarea>
+                    <div class="error-message" id="messageError">Message cannot be empty.</div>
                 </div>
-                <button type="submit" class="button">Send Message</button>
-                <div id="formMessage" class="form-message" role="alert" aria-live="polite"></div>
+                <button type="submit" class="btn" style="width: 100%;">Send Your Message</button>
             </form>
         </div>
     </section>
 
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-links">
-                <a href="#">Privacy Policy</a>
-                <a href="#">Terms of Service</a>
-                <a href="#">Sitemap</a>
-            </div>
-            <p>&copy; 2026 Cucumber fan. All rights reserved.</p>
-        </div>
+    <footer>
+        <p>&copy; <span id="currentYear"></span> Cucumber Fan. All rights reserved. </p>
+        <ul class="footer-links">
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+        </ul>
     </footer>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const navLinks = document.querySelectorAll('.nav-list a');
-            const menuToggle = document.querySelector('.menu-toggle');
-            const navList = document.querySelector('.nav-list');
-            const form = document.getElementById('contactForm');
-            const formMessage = document.getElementById('formMessage');
-
-            // --- Mobile Menu Toggle ---
-            menuToggle.addEventListener('click', function() {
-                navList.classList.toggle('nav-open');
-                menuToggle.setAttribute('aria-expanded', navList.classList.contains('nav-open'));
-            });
-
-            // --- Smooth Scroll & Active Nav Link ---
-            const sections = document.querySelectorAll('section');
-
-            function updateActiveNavLink() {
-                let currentActive = null;
-                sections.forEach(section => {
-                    const sectionTop = section.offsetTop - (navList.offsetHeight + 10); // Adjust for fixed header and a small buffer
-                    const sectionBottom = sectionTop + section.offsetHeight;
-
-                    if (window.scrollY >= sectionTop && window.scrollY < sectionBottom) {
-                        currentActive = section.id;
-                    }
-                });
-
-                navLinks.forEach(link => {
-                    link.classList.remove('active');
-                    if (link.getAttribute('href').substring(1) === currentActive) {
-                        link.classList.add('active');
-                    }
-                });
-            }
-
-            navLinks.forEach(link => {
-                link.addEventListener('click', function(e) {
+            // Smooth Scroll for Navigation
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
                     e.preventDefault();
-                    const targetId = this.getAttribute('href');
-                    const targetSection = document.querySelector(targetId);
 
-                    if (targetSection) {
-                        const offsetTop = targetSection.offsetTop;
-                        const headerOffset = navList.offsetHeight; // Get height of fixed header
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+
+                    if (targetElement) {
+                        const navbarHeight = document.getElementById('navbar').offsetHeight;
+                        const offsetPosition = targetElement.offsetTop - navbarHeight;
 
                         window.scrollTo({
-                            top: offsetTop - headerOffset,
+                            top: offsetPosition,
                             behavior: 'smooth'
                         });
 
                         // Close mobile menu if open
-                        if (navList.classList.contains('nav-open')) {
-                            navList.classList.remove('nav-open');
-                            menuToggle.setAttribute('aria-expanded', false);
+                        const navLinks = document.querySelector('.nav-links');
+                        const hamburger = document.querySelector('.hamburger');
+                        if (navLinks.classList.contains('active')) {
+                            navLinks.classList.remove('active');
+                            hamburger.classList.remove('active');
                         }
                     }
                 });
             });
 
-            // Initial call and attach to scroll event
-            window.addEventListener('scroll', updateActiveNavLink);
-            updateActiveNavLink(); // Set initial active link on load
+            // Mobile Menu Toggle
+            const hamburger = document.querySelector('.hamburger');
+            const navLinks = document.querySelector('.nav-links');
 
-            // --- Contact Form Submission ---
-            form.addEventListener('submit', function(e) {
-                e.preventDefault();
-
-                // Basic validation
-                const name = document.getElementById('name').value.trim();
-                const email = document.getElementById('email').value.trim();
-                const message = document.getElementById('message').value.trim();
-
-                if (name === '' || email === '' || message === '') {
-                    displayFormMessage('Please fill in all fields.', 'error');
-                    return;
-                }
-
-                if (!validateEmail(email)) {
-                    displayFormMessage('Please enter a valid email address.', 'error');
-                    return;
-                }
-
-                // Simulate form submission
-                console.log('Form Submitted:', { name, email, message });
-                displayFormMessage('Thank you for your message! We will get back to you soon.', 'success');
-                form.reset(); // Clear form fields
+            hamburger.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+                hamburger.classList.toggle('active');
             });
 
-            function displayFormMessage(msg, type) {
-                formMessage.textContent = msg;
-                formMessage.className = `form-message ${type}`; // Reset and add new class
-                formMessage.style.display = 'block';
+            // Form Validation and Submission
+            const contactForm = document.getElementById('cucumberContactForm');
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault(); // Prevent actual form submission
 
-                // Hide message after 5 seconds
-                setTimeout(() => {
-                    formMessage.style.display = 'none';
-                    formMessage.textContent = '';
-                }, 5000);
-            }
+                let isValid = true;
 
-            function validateEmail(email) {
-                const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-                return re.test(String(email).toLowerCase());
-            }
+                // Name validation
+                const nameInput = document.getElementById('name');
+                const nameError = document.getElementById('nameError');
+                if (nameInput.value.trim() === '') {
+                    nameError.style.display = 'block';
+                    isValid = false;
+                } else {
+                    nameError.style.display = 'none';
+                }
+
+                // Email validation
+                const emailInput = document.getElementById('email');
+                const emailError = document.getElementById('emailError');
+                const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailPattern.test(emailInput.value.trim())) {
+                    emailError.style.display = 'block';
+                    isValid = false;
+                } else {
+                    emailError.style.display = 'none';
+                }
+
+                // Message validation
+                const messageInput = document.getElementById('message');
+                const messageError = document.getElementById('messageError');
+                if (messageInput.value.trim() === '') {
+                    messageError.style.display = 'block';
+                    isValid = false;
+                } else {
+                    messageError.style.display = 'none';
+                }
+
+                if (isValid) {
+                    // Simulate form submission
+                    alert('Thank you for your message, cucumber fan! We will get back to you soon.');
+                    contactForm.reset(); // Clear the form
+                    // In a real application, you would send data to a server here using fetch() or XMLHttpRequest
+                }
+            });
+
+            // Set current year in footer
+            document.getElementById('currentYear').textContent = new Date().getFullYear();
         });
     </script>
 </body>
